@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.button-style{
+  background-color: blue;
+  border-radius: 13px;
+  color: white;
+  height: 30px;
+  width: 150px;
+  border: none;
+}

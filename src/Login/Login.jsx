@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './login.css'
 
 export default function Login() {
     const [email,setemail] = useState({name:"Athul",age:29});
@@ -12,16 +13,44 @@ const navigate = useNavigate()
             navigate("/home")
             }
   return (
-    <div>
-            <form onSubmit={handleSubmit}>
-        <label for="fname" >First name:</label><br/>
-        <input onChange={(e)=>setemail(e.target.value)} required type="email" id="fname" name="fname"/><br/>
-        <label for="lname">Last name:</label><br/>
-        <input onChange={(e)=>setpassword(e.target.value)}  required type="password" id="lname" name="lname"/>
-        <div>
-        <button type='submit' className='button-style' style={{marginTop:10}}>Login</button>
-        </div>
-</form>
+    <div className="login-style">
+  <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Email Login</h1>
+  <form onSubmit={handleSubmit} className="login-form">
+    <div className="form-group" style={{ marginBottom: '15px' }}>
+      <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>
+        Username or Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        onChange={(e) => setemail(e.target.value)}
+        className="form-control"
+      />
     </div>
+    <div className="form-group" style={{ marginBottom: '15px' }}>
+      <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
+        Password
+      </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+        onChange={(e) => setpassword(e.target.value)}
+        className="form-control"
+      />
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <button type="submit" className="button-style" style={{ marginTop: 10 }}>
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+
   )
 }
